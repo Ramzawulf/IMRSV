@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RequestManager : MonoBehaviour {
+public class BuildingManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
