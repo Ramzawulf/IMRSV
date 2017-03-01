@@ -27,6 +27,7 @@ public class SensorTransfer{
 }
 
 [System.Serializable]
-public class SensorCollectionTransfer{
+public class SensorTransferCollection{
 	public SensorTransfer[] sensors;
 }
+
