@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace IMRSV{
+
 [System.Serializable]
 public class FloorTransfer{
 	public int id;
@@ -18,4 +20,4 @@ public class FloorTransfer{
 [System.Serializable]
 public class FloorTransferCollection{
 	public FloorTransfer[] floors;
-}
+	}}

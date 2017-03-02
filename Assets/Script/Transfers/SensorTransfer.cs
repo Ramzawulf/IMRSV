@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace IMRSV{
+
 [System.Serializable]
 public class SensorTransfer{
 
@@ -31,3 +33,4 @@ public class SensorTransferCollection{
 	public SensorTransfer[] sensors;
 }
 
+}

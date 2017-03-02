@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Text;
+namespace IMRSV{
 
 public class RequestUtils{
 
@@ -31,5 +32,7 @@ public class RequestUtils{
 public enum ArrayFormatterType{
 	buildings,
 	sensors, 
-	floors
+	floors, 
+	polygons
+}
 }
