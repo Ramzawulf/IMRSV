@@ -2,216 +2,223 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sensor : MonoBehaviour {
+namespace IMRSV
+{
 
-	#region Properties
-	public string Id {
-		get {
-			return id;
-		}
-		set {}
-	}
+	public class Sensor : MonoBehaviour
+	{
 
-	public string Uid {
-		get {
-			return uid;
-		}
-		set {}
-	}
+		#region Properties
 
-	public float X {
-		get {
-			return x;
+		public string Id {
+			get {
+				return id;
+			}
+			set { }
 		}
-		set {
-		}
-	}
 
-	public float Y {
-		get {
-			return y;
+		public string Uid {
+			get {
+				return uid;
+			}
+			set { }
 		}
-		set {
-		}
-	}
 
-	public float Rotation {
-		get {
-			return rotation;
+		public float X {
+			get {
+				return x;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public float TransX {
-		get {
-			return transX;
+		public float Y {
+			get {
+				return y;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public float TransY {
-		get {
-			return transY;
+		public float Rotation {
+			get {
+				return rotation;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public float ScaleX {
-		get {
-			return scaleX;
+		public float TransX {
+			get {
+				return transX;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public float ScaleY {
-		get {
-			return scaleY;
+		public float TransY {
+			get {
+				return transY;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public float FlipX {
-		get {
-			return flipX;
+		public float ScaleX {
+			get {
+				return scaleX;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public float FlipY {
-		get {
-			return flipY;
+		public float ScaleY {
+			get {
+				return scaleY;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public string Origin {
-		get {
-			return origin;
+		public float FlipX {
+			get {
+				return flipX;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public string ContainerType {
-		get {
-			return containerType;
+		public float FlipY {
+			get {
+				return flipY;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public int ContainerId {
-		get {
-			return containerId;
+		public string Origin {
+			get {
+				return origin;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public int TypeId {
-		get {
-			return typeId;
+		public string ContainerType {
+			get {
+				return containerType;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public string TypeName {
-		get {
-			return typeName;
+		public int ContainerId {
+			get {
+				return containerId;
+			}
+			set {
+			}
 		}
-		set {
-		}
-	}
 
-	public string TypeGroupName {
-		get {
-			return typeGroupName;
+		public int TypeId {
+			get {
+				return typeId;
+			}
+			set {
+			}
 		}
-		set {
+
+		public string TypeName {
+			get {
+				return typeName;
+			}
+			set {
+			}
 		}
-	}
 
-	public string TypeOrigin {
-		get {
-			return typeOrigin;
+		public string TypeGroupName {
+			get {
+				return typeGroupName;
+			}
+			set {
+			}
 		}
-		set {
+
+		public string TypeOrigin {
+			get {
+				return typeOrigin;
+			}
+			set {
+			}
 		}
-	}
 
-	public AttributeTransfer[] Attributes {
-		get {
-			return attributes;
+		public AttributeTransfer[] Attributes {
+			get {
+				return attributes;
+			}
+			set {
+				attributes = value;
+			}
 		}
-		set {
-			attributes = value;
-		}
-	}
 
-	#endregion
+		#endregion
 
-	private string id;
-	private string uid;
-	private float x;
-	private float y;
-	private float rotation;
-	private float transX;
-	private float transY;
-	private float scaleX;
-	private float scaleY;
-	private float flipX;
-	private float flipY;
-	private string origin;
-	private string containerType;
-	private int containerId;
-	private int typeId;
-	private string typeName;
-	private string typeGroupName;
-	private string typeOrigin;
-	private AttributeTransfer[] attributes;
+		private string id;
+		private string uid;
+		private float x;
+		private float y;
+		private float rotation;
+		private float transX;
+		private float transY;
+		private float scaleX;
+		private float scaleY;
+		private float flipX;
+		private float flipY;
+		private string origin;
+		private string containerType;
+		private int containerId;
+		private int typeId;
+		private string typeName;
+		private string typeGroupName;
+		private string typeOrigin;
+		private AttributeTransfer[] attributes;
 
 
-	void Start () {
+		void Start ()
+		{
 		
-	}
-	
-	void ImportTransfer (SensorTransfer st)
-	{
-		id = st.id;
-		uid = st.uid;
-		x = st.x;
-		y = st.y;
-		rotation = st.rotation;
-		transX = st.transX;
-		transY = st.transY;
-		scaleX = st.scaleX;
-		scaleY = st.scaleY;
-		flipX = st.flipX;
-		flipY = st.flipY;
-		origin = st.origin;
-		containerType = st.containerType;
-		containerId = st.containerId;
-		typeId = st.typeId;
-		typeName = st.typeName;
-		typeGroupName = st.typeGroupName;
-		typeOrigin = st.typeOrigin;
-		attributes = st.attributes;
+		}
 
-	}
+		void ImportTransfer (SensorTransfer st)
+		{
+			id = st.id;
+			uid = st.uid;
+			x = st.x;
+			y = st.y;
+			rotation = st.rotation;
+			transX = st.transX;
+			transY = st.transY;
+			scaleX = st.scaleX;
+			scaleY = st.scaleY;
+			flipX = st.flipX;
+			flipY = st.flipY;
+			origin = st.origin;
+			containerType = st.containerType;
+			containerId = st.containerId;
+			typeId = st.typeId;
+			typeName = st.typeName;
+			typeGroupName = st.typeGroupName;
+			typeOrigin = st.typeOrigin;
+			attributes = st.attributes;
 
-	public static Sensor CreateFromTransfer (SensorTransfer st)
-	{
-		GameObject go = Instantiate (PrefabManager.instance.SensorPrefab) as GameObject;
-		Sensor s = go.GetComponent<Sensor> ();
-		s.ImportTransfer (st);
-		return s;
+		}
+
+		public static Sensor CreateFromTransfer (SensorTransfer st)
+		{
+			GameObject go = Instantiate (PrefabManager.instance.SensorPrefab) as GameObject;
+			Sensor s = go.GetComponent<Sensor> ();
+			s.ImportTransfer (st);
+			return s;
+		}
 	}
 }

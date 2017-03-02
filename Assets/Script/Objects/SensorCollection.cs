@@ -15,10 +15,10 @@ public class SensorCollection
 	}
 
 	private List<Sensor> collection;
-	private Floor floor;
+	private Transform container;
 
-	public SensorCollection(Floor f){
-		floor = f;
+	public SensorCollection(Transform c){
+		container = c;
 	}
 
 	public void ImportSensors (SensorTransferCollection stc)
@@ -27,7 +27,7 @@ public class SensorCollection
 
 		foreach (var st in stc.sensors) {
 			Sensor s = Sensor.CreateFromTransfer (st);
-			s.transform.SetParent (floor.transform);
+			s.transform.SetParent (container);
 			s.gameObject.name = s.TypeName +"-"+ s.Id;
 			collection.Add (s);
 		}

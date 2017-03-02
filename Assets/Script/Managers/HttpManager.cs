@@ -106,10 +106,6 @@ public class HttpManager : MonoBehaviour
 					tempFloor.ImportSensors (tempSTC);
 					tempFloor.ImportPolygons (tempPQT);
 					buildingGo.ImportFloor (tempFloor);
-
-
-
-						
 				}
 			}
 		}
