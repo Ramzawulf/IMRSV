@@ -12,6 +12,9 @@ public class PrefabManager : MonoBehaviour {
 	public GameObject BuildingPrefab;
 	public GameObject SensorPrefab;
 	public GameObject PolygonPrefab;
+	public GameObject LineRenderer;
+		public GameObject Blueprint;
+
 
 	void Awake () {
 		if (instance == null)

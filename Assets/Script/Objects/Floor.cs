@@ -88,9 +88,18 @@ namespace IMRSV
 			set {
 				building = value;
 				gameObject.transform.SetParent (value.transform);
+				transform.position = Vector3.zero;
 			}
 		}
 
+		public BluePrint BluePrint {
+			get {
+				return bluePrint;
+			}
+			set {}
+		}
+
+	
 		#endregion
 
 		private int id;
@@ -107,6 +116,7 @@ namespace IMRSV
 		private Building building;
 		private Transform sensorContainer;
 		private Transform polygonContainer;
+		private BluePrint bluePrint;
 
 		public void Awake ()
 		{
@@ -147,6 +157,23 @@ namespace IMRSV
 		public void ImportPolygons (PolygonQueryTransfer tempPQT)
 		{
 			polygons.ImportPolygon (tempPQT);
+			InitBlueprint ();
+		}
+
+		private void InitBlueprint ()
+		{
+			List<Vector3[]> points = polygons.GetPolygonPoints ();
+			bluePrint =  BluePrint.GetBluePrint(points);
+			bluePrint.transform.SetParent (gameObject.transform);
+			bluePrint.gameObject.SetActive (false);
+		}
+
+		public void ToggleBluePrint ()
+		{
+			bluePrint.gameObject.SetActive (!bluePrint.gameObject.activeSelf);
+			if (bluePrint.gameObject.activeSelf) {
+				CameraBehaviour.Instance.transform.position = bluePrint.centre;
+			}
 		}
 	}
 }

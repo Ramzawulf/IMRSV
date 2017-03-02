@@ -16,8 +16,6 @@ namespace IMRSV{
 
 		}
 
-
-
 		public void ImportPolygon (PolygonQueryTransfer pqt)
 		{
 			if(polygons == null)
@@ -30,6 +28,14 @@ namespace IMRSV{
 				polygons.Add (p);
 			}
 
+		}
+
+		public List<Vector3[]> GetPolygonPoints(){
+			List<Vector3[]> points = new	List<Vector3[]> ();
+			foreach (var p in polygons) {
+				points.Add (p.vertex.ToArray());
+			}
+			return points;
 		}
 }
 

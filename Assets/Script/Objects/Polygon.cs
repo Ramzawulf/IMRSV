@@ -9,10 +9,12 @@ namespace IMRSV
 	{
 		public List<Vector3> vertex;
 		public int id;
+		private LineRenderer lRendereer;
 
 		void Awake ()
 		{
 			vertex = new List<Vector3> ();
+
 		}
 
 		public static Polygon CreateFromTransfer (PolygonTransfer pt)
@@ -28,6 +30,17 @@ namespace IMRSV
 			foreach (var c in pt.coords) {
 				vertex.Add(new Vector3(c.x, c.y, c.z));
 			}
+		}
+
+		public void Draw(){
+			/*
+			lRendereer = gameObject.AddComponent<LineRenderer> ();
+			lRendereer.numPositions = vertex.Count;
+			for(int i = 0; i < vertex.Count; id++){
+				GameObject	go = Instantiate (PrefabManager.instance.Temp);
+				go.transform.position = vertex [i];
+			}
+			*/
 		}
 	}
 }

@@ -2,37 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace IMRSV{
+namespace IMRSV
+{
 
-public class FloorCollection{
-
-	private Building building;
-
-	public FloorCollection (Building b)
+	public class FloorCollection
 	{
-		floors = new List<Floor> ();
-		building = b;
+		public int Count {
+			get{ return floors.Count; }
+			set{ }
+		}
 
-	}
+		public List<Floor> Floors {
+			get {
+				return floors;
+			}
+			set { }
+		}
 
-	private List<Floor> floors;
+		private Building building;
+		private List<Floor> floors;
 
-	// Use this for initialization
-	void Awake () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	public void Add (Floor floor)
-	{
-		if (floors == null)
+		public FloorCollection (Building b)
+		{
 			floors = new List<Floor> ();
-		floor.Building = building;
-		floors.Add (floor);
+			building = b;
+
+		}
+
+
+
+		public void Add (Floor floor)
+		{
+			if (floors == null)
+				floors = new List<Floor> ();
+			floor.Building = building;
+			floors.Add (floor);
+		}
 	}
-}
 }
