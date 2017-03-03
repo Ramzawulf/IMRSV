@@ -92,6 +92,13 @@ namespace IMRSV
 			}
 		}
 
+		public PolygonCollection Polygons {
+			get {
+				return polygons;
+			}
+			set {}
+		}
+
 		public BluePrint BluePrint {
 			get {
 				return bluePrint;
@@ -172,7 +179,9 @@ namespace IMRSV
 		{
 			bluePrint.gameObject.SetActive (!bluePrint.gameObject.activeSelf);
 			if (bluePrint.gameObject.activeSelf) {
-				CameraBehaviour.Instance.transform.position = bluePrint.centre;
+				Vector3 cameraPosition = bluePrint.centre + new Vector3 (0, 0, -85);
+				CameraBehaviour.Instance.transform.position = cameraPosition;
+				//CameraBehaviour.Instance.LookAt (bluePrint.centre);
 			}
 		}
 	}

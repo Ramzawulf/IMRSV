@@ -6,6 +6,7 @@ namespace IMRSV
 {
 	public class BuildingManager : MonoBehaviour
 	{
+		
 		public Building MyBuilding {
 			get {
 				return myBuilding;
@@ -16,6 +17,7 @@ namespace IMRSV
 
 		public static BuildingManager instance;
 		private Building myBuilding;
+		private int blueprintIndex = 0;
 
 		void Awake ()
 		{
@@ -35,6 +37,8 @@ namespace IMRSV
 
 		void SetBuilding (Building b)
 		{
+			if (b == null)
+				return;
 			myBuilding = b;
 			myBuilding.gameObject.transform.SetParent (gameObject.transform);
 			myBuilding.gameObject.name = myBuilding.Name;
@@ -43,6 +47,14 @@ namespace IMRSV
 		public void QueryForBuildingByName(string name){
 			print ("start query");
 			StartCoroutine (HttpManager.instance.QueryForBuildingByName ("Isafjordsgatan ", SetBuilding));
+		}
+
+		public void WatchBluePrints(){
+			if (myBuilding == null || blueprintIndex > myBuilding.Floors.Floors.Count)
+				return;
+				
+			myBuilding.Floors.Floors [blueprintIndex].ToggleBluePrint ();
+			blueprintIndex = (blueprintIndex + 1) % myBuilding.Floors.Floors.Count;
 		}
 	}
 }

@@ -6,6 +6,10 @@ namespace IMRSV
 {
 	public class BluePrint:MonoBehaviour
 	{
+		private Vector3 max;
+		private Vector3 min;
+
+
 		public Vector3 centre{
 			get{return GetCenter (); }
 			set{ }
@@ -31,6 +35,7 @@ namespace IMRSV
 			foreach (var p in polygons) {
 				GameObject go = Instantiate (PrefabManager.instance.LineRenderer);
 				LineRenderer lr = go.GetComponent<LineRenderer>();
+				lr.useWorldSpace = true;
 				lr.numPositions = p.Length;
 				for(int i = 0; i < p.Length; i++){
 					lr.SetPosition (i, p [i]);
@@ -41,8 +46,8 @@ namespace IMRSV
 		}
 
 		private Vector3 GetCenter(){
-			Vector3 max = Vector3.zero;
-			Vector3 min = Vector3.zero;
+			max = Vector3.zero;
+			min = Vector3.zero;
 
 			foreach (LineRenderer lr in lRenderers) {
 				for (int i = 0; i < lr.numPositions; i++) {
@@ -57,7 +62,17 @@ namespace IMRSV
 				}
 			}
 
-			return (max - min) * 0.5f;;
+			return (max + min) * 0.5f;;
+		}
+
+		void OnDrawGizmos(){
+			Gizmos.DrawWireSphere (centre, 5f);
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireSphere (max, 5f);
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere (min, 5f);
+
+
 		}
 
 	}

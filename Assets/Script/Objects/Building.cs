@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
 
 namespace IMRSV
 {
@@ -159,6 +160,23 @@ namespace IMRSV
 			if (floorNumber <= floors.Count) {
 				floors.Floors [floorNumber].ToggleBluePrint ();
 			}
+		}
+
+		public override string ToString ()
+		{
+			StringBuilder result = new StringBuilder ();			
+			result.AppendLine(string.Format ("Building: numberOfFloors={0}, Id={1}, Uid={2}, Version={3}, Created={4}", numberOfFloors, Id, Uid, Version, Created));
+			result.AppendLine(string.Format ("Updated={0}, Name={1}, PopularName={2}, MarkerType={3}", Updated, Name, PopularName, MarkerType));
+			result.AppendLine(string.Format ("GeoLocation={0}, Origin={1}, Floors={2}]", GeoLocation, Origin, Floors));
+
+			int i = 1;
+			foreach (var floor in floors.Floors) {
+				result.AppendLine (string.Format("Floor {0}: {1} sensors, {2} polygons",i, floor.Sensors.Collection.Count, floor.Polygons.polygons.Count));	
+				i++;
+			}
+
+			return result.ToString ();
+
 		}
 	}
 }
